@@ -22,7 +22,7 @@ func _physics_process(delta):
 	velocity.z += desired_velocity.z
 	var current_speed = velocity.length()
 	velocity = velocity.normalized() * clamp(current_speed,0,max_speed)
-
+	$AnimationTree.set("parameters/Idle_Walk/blend_amount", current_speed/max_speed) 
 	velocity = move_and_slide(velocity, Vector3.UP, true)
 
 
